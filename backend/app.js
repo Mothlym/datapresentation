@@ -3,7 +3,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var users = require('./routes/users');
 var solarPanel = require('./routes/solar-panel');
 
 var app = express();
@@ -18,7 +17,6 @@ app.use(function(req, res, next) {
     next();
   });
 
-app.use('/api/v1/users', users);
 app.use('/api/v1/solar_panel', solarPanel);
 
 module.exports = app;

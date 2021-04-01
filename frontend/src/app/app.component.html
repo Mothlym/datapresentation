@@ -1,3 +1,11 @@
 <div>
-  <router-outlet></router-outlet>
+    <div class="topHeader">
+        <a class="hover" routerLink="/home" routerLinkActive="active-link"><span>Home</span></a>
+        <a class="hover" routerLink="/solar" routerLinkActive="active-link"><span>Solar panel</span></a>
+        <a class="hover" routerLink="/weather" routerLinkActive="active-link"><span>Weather stations</span></a>
+        <a class="hover" routerLink="/battery" routerLinkActive="active-link"><span>Battery</span></a>
+    </div>
+
+    <mat-divider></mat-divider>
+    <router-outlet></router-outlet>
 </div>
