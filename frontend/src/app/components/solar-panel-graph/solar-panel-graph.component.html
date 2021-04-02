@@ -1,6 +1,14 @@
 <mat-card class="container">
-    <app-date-picker></app-date-picker>
-    <div id="chart">
-
+    <mat-card-header>
+        <mat-card-title>Data over time</mat-card-title>
+    </mat-card-header>
+    <app-date-picker [disabled]="loading" (from)="setFromValue($event)" (to)="setToValue($event)"></app-date-picker>
+    <div *ngIf="loading" class="spinner-container">
+        <mat-spinner></mat-spinner>
     </div>
+
+    <div id="chart" [hidden]="loading">
+        No data
+    </div>
+
 </mat-card>

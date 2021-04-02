@@ -18,8 +18,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatNativeDateModule } from '@angular/material/core';
+import { DateAdapter, MatNativeDateModule,  MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { SolarPanelGraphComponent } from './components/solar-panel-graph/solar-panel-graph.component';
+import { MY_FORMATS } from './components/date-picker/format';
+import { MomentDateAdapter } from '@angular/material-moment-adapter';
+import { SolarPanelDayGraphComponent } from './components/solar-panel-day-graph/solar-panel-day-graph.component';
 
 const routes: Routes = [
   {
@@ -55,6 +58,7 @@ const routes: Routes = [
     PanelDataCardComponent,
     DatePickerComponent,
     SolarPanelGraphComponent,
+    SolarPanelDayGraphComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +76,10 @@ const routes: Routes = [
     MatProgressSpinnerModule,
     MatTabsModule,
   ],
-  providers: [],
+  providers: [
+    {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
+    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

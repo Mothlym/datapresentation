@@ -21,4 +21,31 @@ router.get('/', function(req, res, next) {
     });
 });
 
+router.get('/interval', function(req, res, next) {
+    var from = req.query.from;
+    var to = req.query.to;
+
+    connection.query(
+        'SELECT * FROM temp WHERE Datum between ' +
+        mysql.escape(from) +
+        ' AND ' +
+        mysql.escape(to) + ' ORDER BY Datum;',
+        function(err, rows, fields) {
+            if (err) {
+                console.log(err);
+            }
+            res.json(extractPanelDataArr(rows))
+        });
+});
+
+function extractPanelDataArr(rows) {
+    var result = [];
+    if (rows) {
+        rows.forEach(element => {
+            result.push({ date: element.Datum, tank: element.TT, in: element.TI, out: element.TO, panel: element.TP, pump: element.pump });
+        });
+    }
+    return result;
+}
+
 module.exports = router;
