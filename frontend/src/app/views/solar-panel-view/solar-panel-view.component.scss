@@ -1,3 +1,21 @@
 app-panel-data-card {
     margin: 1em;
 }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    margin: 1em;
+}
+
+app-panel-data-card {
+    max-width: 200px;
+    margin: auto;
+}
+
+app-solar-panel-graph {
+    max-width: 800px;
+    margin: auto;
+}

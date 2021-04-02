@@ -1,24 +1,24 @@
 var express = require('express');
 var mysql = require('mysql')
 var router = express.Router();
+var config = require('../secure/config');
 
-// var connection = mysql.createConnection({
-//   host: 'localhost',
-//   user: 'dbuser',
-//   password: 's3kreee7',
-//   database: 'my_db'
-// })
+var connection = mysql.createConnection({
+    host: '192.168.1.82',
+    user: 'root',
+    password: config.solpanelPw,
+    database: 'solpanelen'
+})
 
-router.get('/', function (req, res, next) {
-  // connection.connect();
-  // connection.query('SELECT 1 + 1 AS solution', function (err, rows, fields) {
-  //   if (err) throw err
+connection.connect();
 
-  //   console.log('The solution is: ', rows[0].solution)
-  // });
-  // connection.end();
-
-  res.json({date: '2020-01-01', tank: 1, in: 2, out: 3, panel: 4, pump: 'OFF' });
+router.get('/', function(req, res, next) {
+    connection.query('SELECT * FROM temp ORDER BY Datum DESC LIMIT 1;', function(err, rows, fields) {
+        if (err) {
+            console.log(err);
+        }
+        res.json({ date: rows[0].Datum, tank: rows[0].TT, in: rows[0].TI, out: rows[0].TO, panel: rows[0].TP, pump: rows[0].pump })
+    });
 });
 
 module.exports = router;

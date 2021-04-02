@@ -1,7 +1,12 @@
 <div>
-    <div *ngIf="latestPanelData !== null" style="display: flex;">
-        <app-panel-data-card title="Solar panel 1" [panelData]="latestPanelData"></app-panel-data-card>
-        <app-panel-data-card title="Solar panel 2" [panelData]="latestPanelData"></app-panel-data-card>
+    <div *ngIf="latestPanelData !== null" class="container">
+        <div class="container">
+            <app-panel-data-card title="Latest solar panel data" [panelData]="latestPanelData" [loading]="loading"></app-panel-data-card>
+        </div>
+        <div class="container">
+            <app-solar-panel-graph></app-solar-panel-graph>
+        </div>
+
     </div>
 
 </div>

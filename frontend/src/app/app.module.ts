@@ -6,11 +6,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { SolarPanelViewComponent } from './views/solar-panel-view/solar-panel-view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDividerModule } from '@angular/material/divider';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTabsModule } from '@angular/material/tabs';
 import { HomeViewComponent } from './views/home-view/home-view.component';
 import { BatteryViewComponent } from './views/battery-view/battery-view.component';
 import { WeatherViewComponent } from './views/weather-view/weather-view.component';
 import { PanelDataCardComponent } from './components/panel-data-card/panel-data-card.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DatePickerComponent } from './components/date-picker/date-picker.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import { SolarPanelGraphComponent } from './components/solar-panel-graph/solar-panel-graph.component';
 
 const routes: Routes = [
   {
@@ -44,7 +53,8 @@ const routes: Routes = [
     BatteryViewComponent,
     WeatherViewComponent,
     PanelDataCardComponent,
-    
+    DatePickerComponent,
+    SolarPanelGraphComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +63,14 @@ const routes: Routes = [
     BrowserAnimationsModule,
     MatDividerModule,
     MatCardModule,
-
+    CommonModule,
+    FormsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatNativeDateModule,
+    MatProgressSpinnerModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

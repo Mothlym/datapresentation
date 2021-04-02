@@ -2,3 +2,26 @@
     background-image: url('../../../assets/images/icon1.png');
     background-size: cover;
 }
+
+mat-card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.text {
+    border-bottom: 1px solid gray;
+    margin-top: 4px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+}
