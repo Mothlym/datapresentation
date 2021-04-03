@@ -51,8 +51,6 @@ export class SolarPanelGraphComponent {
     tempTank.push('Tank');
     date.push('date');
 
-    console.log(panelData);
-
     for (let item of panelData) {
       tempIn.push(item.in);
       tempOut.push(item.out);
@@ -61,11 +59,6 @@ export class SolarPanelGraphComponent {
       date.push(new Date(item.date));
       pump.push(item.pump);
     }
-
-    console.log(tempIn);
-    console.log(tempOut);
-    console.log(tempTank);
-    console.log(tempPanel);
 
     var chart = c3.generate({
       bindto: '#chart',

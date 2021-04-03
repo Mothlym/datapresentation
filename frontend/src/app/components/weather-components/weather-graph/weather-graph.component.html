@@ -1,0 +1,38 @@
+<mat-card class="container">
+    <mat-card-header>
+        <mat-card-title>Data over time</mat-card-title>
+    </mat-card-header>
+    <app-date-picker [disabled]="loading" (from)="setFromValue($event)" (to)="setToValue($event)"></app-date-picker>
+    <div *ngIf="loading" class="spinner-container">
+        <mat-spinner></mat-spinner>
+    </div>
+
+    <mat-tab-group>
+        <mat-tab label="Graph view">
+
+            <div [hidden]="loading" class="container">
+                <div id="chartTemperature">
+                    No data
+                </div>
+
+                <div id="chartHumidity">
+                </div>
+
+                <div id="chartDaylight">
+                </div>
+
+                <div id="chartMillibar">
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="Table view">
+            <mat-card>
+                <mat-card-content>
+                    <app-weather-table [loading]="loading" [weatherData]="weatherData"></app-weather-table>
+                </mat-card-content>
+            </mat-card>
+        </mat-tab>
+    </mat-tab-group>
+
+
+</mat-card>

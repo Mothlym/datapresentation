@@ -6,7 +6,7 @@ import { PanelData } from 'src/app/api/model/panel-data';
   templateUrl: './panel-data-card.component.html',
   styleUrls: ['./panel-data-card.component.scss']
 })
-export class PanelDataCardComponent implements OnInit, OnChanges {
+export class PanelDataCardComponent implements OnChanges {
 
   @Input() panelData: PanelData;
   @Input() title: string;
@@ -19,10 +19,6 @@ export class PanelDataCardComponent implements OnInit, OnChanges {
       this.loading = changes.loading.currentValue;
     }
   }
-
-  ngOnInit() {
-  }
-
   
 
 }

@@ -10,12 +10,12 @@ import { SolarPanelService } from 'src/app/api/service/solar-panel.service';
 export class SolarPanelViewComponent implements OnInit {
 
   public loading: boolean;
+  public latestPanelData: PanelData;
 
   constructor(private solarPanelService: SolarPanelService) {
     this.loading = true;
   }
 
-  public latestPanelData: PanelData;
   ngOnInit() {
     this.loading = true;
     this.solarPanelService.getLatestPanelData().subscribe(panelData => {

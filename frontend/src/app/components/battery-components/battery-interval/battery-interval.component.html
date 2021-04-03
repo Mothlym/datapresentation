@@ -1,0 +1,11 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Battery status interval</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <app-date-picker [disabled]="loading" (from)="setFromValue($event)" (to)="setToValue($event)"></app-date-picker>
+
+        <app-battery-table [loading]="loading" [batteryData]="batteryData"></app-battery-table>
+
+    </mat-card-content>
+</mat-card>

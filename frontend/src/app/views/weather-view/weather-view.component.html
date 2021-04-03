@@ -1,3 +1,11 @@
-<p>
-  weather-view works!
-</p>
+<div>
+    <div *ngIf="latestWeatherData !== null" class="container">
+        <div class="container">
+            <app-weather-latest title="Latest weather data" [weatherData]="latestWeatherData" [loading]="loading"></app-weather-latest>
+        </div>
+        <div class="container">
+            <app-weather-graph></app-weather-graph>
+        </div>
+    </div>
+
+</div>

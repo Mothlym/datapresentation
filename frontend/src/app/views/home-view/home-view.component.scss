@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 1em;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 1em;
+}
+
+app-panel-data-card {
+    max-width: 300px;
+    margin: auto;
+}
+
+app-weather-latest {
+    max-width: 300px;
+    margin: auto;
+}

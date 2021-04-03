@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div *ngIf="loading" class="spinner-container">
+            <mat-spinner></mat-spinner>
+        </div>
+        <div *ngIf="!loading">
+            <div class="text"><span class="left">Temperature:</span> <span class="right">{{weatherData.temperature}} &#8451;</span><br></div>
+            <div class="text"><span class="left">Sunlight:</span> <span class="right">{{weatherData.daylight}}</span><br></div>
+            <div class="text"><span class="left">Humidity:</span> <span class="right">{{weatherData.humidity}} </span><br></div>
+            <div class="text"><span class="left">milliBar:</span> <span class="right">{{weatherData.millibar}} </span><br></div>
+            <div class="text"><span class="left">Text:</span> <span class="right">{{weatherData.text}}</span><br></div>
+            <div class="text"><span class="left">Date:</span> <span class="right">{{weatherData.date | date:'medium'}}</span><br></div>
+        </div>
+    </mat-card-content>
+</mat-card>
